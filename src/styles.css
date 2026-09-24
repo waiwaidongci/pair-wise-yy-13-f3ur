@@ -18,7 +18,8 @@ body {
 }
 
 button,
-input {
+input,
+select {
   font: inherit;
 }
 
@@ -165,12 +166,204 @@ label span {
   font-size: 13px;
 }
 
-input {
+input,
+select {
   width: 100%;
   min-height: 42px;
   border-radius: 7px;
   border: 1px solid var(--border);
   padding: 0 12px;
+  background: #ffffff;
+}
+
+.filter-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 18px;
+}
+
+.filter-bar label {
+  min-width: 240px;
+}
+
+.chip.active {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  color: #ffffff;
+}
+
+.filter-actions {
+  margin-left: auto;
+  display: flex;
+  gap: 10px;
+}
+
+.badge {
+  flex-shrink: 0;
+  padding: 4px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.tone-shipping {
+  color: var(--secondary);
+  background: color-mix(in srgb, var(--secondary) 12%, #ffffff);
+}
+
+.tone-signable {
+  color: var(--accent);
+  background: color-mix(in srgb, var(--accent) 12%, #ffffff);
+}
+
+.tone-signed {
+  color: #334155;
+  background: #e2e8f0;
+}
+
+.tone-void {
+  color: var(--primary);
+  background: color-mix(in srgb, var(--primary) 10%, #ffffff);
+}
+
+.order-list {
+  display: grid;
+  gap: 12px;
+}
+
+.order-card {
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 14px;
+  background: #fbfdff;
+}
+
+.order-card h3 {
+  margin: 0 0 4px;
+}
+
+.order-card .meta {
+  margin: 0 0 10px;
+  color: #526071;
+  font-size: 13px;
+}
+
+.specs {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.specs span {
+  background: #eef2f7;
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 13px;
+}
+
+.specs .warn {
+  background: color-mix(in srgb, var(--primary) 12%, #ffffff);
+  color: var(--primary);
+  font-weight: 700;
+}
+
+.revise-form {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.revise-actions {
+  display: flex;
+  gap: 8px;
+  margin-top: 12px;
+}
+
+.hint {
+  margin: 12px 0 0;
+  color: #64748b;
+  font-size: 13px;
+}
+
+.added-ok {
+  margin: 8px 0 0;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 700;
+}
+
+.shipment-list {
+  display: grid;
+  gap: 12px;
+}
+
+.shipment {
+  display: grid;
+  gap: 10px;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px;
+  background: #fbfdff;
+}
+
+.shipment-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 12px;
+}
+
+.shipment-head h3 {
+  margin: 0 0 4px;
+}
+
+.shipment-head p {
+  margin: 0;
+  color: #526071;
+  font-size: 13px;
+}
+
+.feedback-line {
+  margin: 0;
+  padding: 8px 10px;
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  background: color-mix(in srgb, var(--accent) 8%, #ffffff);
+  font-size: 14px;
+}
+
+.actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+}
+
+.actions input {
+  flex: 1;
+  min-width: 200px;
+}
+
+.void-note {
+  color: var(--primary);
+  font-size: 13px;
+}
+
+.signed-note {
+  color: #334155;
+  font-size: 13px;
+}
+
+.empty {
+  margin: 0;
+  padding: 30px;
+  border: 1px dashed var(--border);
+  border-radius: 8px;
+  text-align: center;
+  color: #64748b;
 }
 
 .records {
@@ -211,8 +404,13 @@ input {
 @media (max-width: 860px) {
   .metrics,
   .workspace,
-  .field-grid {
+  .field-grid,
+  .revise-form {
     grid-template-columns: 1fr;
+  }
+
+  .filter-actions {
+    margin-left: 0;
   }
 
   .hero {
